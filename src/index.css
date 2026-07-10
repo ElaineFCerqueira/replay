@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme {
+  --font-kalam: 'Kalam', cursive;
+  --font-caveat: 'Caveat', cursive;
+  --color-orkut-blue: #185FA5;
+  --color-orkut-blue-dark: #123F70;
+  --color-paper: #FFFDF5;
+  --color-paper-line: #C9DCEF;
+  --color-margin-red: #E0857D;
+  --color-ink: #2B2B2B;
+  --color-sticker-yellow: #FDE9A8;
+  --color-sticker-yellow-border: #F0C24B;
+  --color-sticker-pink: #F6C9DC;
+  --color-sticker-pink-border: #E0849E;
+  --color-sticker-blue: #C9E4F5;
+  --color-sticker-blue-border: #7FB5DD;
+}
+
+body {
+  background-color: var(--color-paper);
+}
