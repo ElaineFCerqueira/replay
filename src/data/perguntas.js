@@ -130,7 +130,7 @@ export const perguntas = [
   { id: 't05', tag: 'tecnologia', texto: 'Tinha algum jogo de computador ou videogame que você jogava até altas horas escondido?' },
   { id: 't06', tag: 'tecnologia', texto: 'Você tinha algum apelido ou nick "artístico" que usava em fóruns, chats ou jogos online?' },
   { id: 't07', tag: 'tecnologia', texto: 'Lembra da ansiedade de esperar uma foto revelada, ou já era da geração câmera digital?' },
-  { id: 't08', tag: 'tecnologia', texto: 'Lembra qual o nome do programa que baixava música tipo Kazaa/Napster (e torcia pra não vir vírus junto)?' },
+  { id: 't08', tag: 'tecnologia', texto: 'Lembra qual o nome do programa que baixava música (e torcia pra não vir vírus junto)?' },
   { id: 't09', tag: 'tecnologia', texto: 'Lembra o nome de alguma LAN house que você e a galera frequentavam?' },
   { id: 't10', tag: 'tecnologia', texto: 'Qual foi a primeira vez que você viu a internet e achou aquilo mágico?' },
   { id: 't11', tag: 'tecnologia', texto: 'Lembra o nome do dono da locadora que você e a galera frequentavam?' },
