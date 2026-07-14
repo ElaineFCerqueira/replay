@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useCaderninho } from './hooks/useCaderninho'
+import { CapaCaderno } from './components/CapaCaderno'
 import { PaginaCaderno } from './components/PaginaCaderno'
 import { SeletorDestaques, CartaoResumo } from './components/ResumoCompartilhavel'
 import { perguntasRestantes } from './data/perguntas'
@@ -7,7 +8,7 @@ import { perguntasRestantes } from './data/perguntas'
 // Telas: 'respondendo' -> 'selecionando' -> 'resumo'
 export default function App() {
   const { respostas, loteAtual, carregando, salvarResposta, sortearMais } = useCaderninho()
-  const [tela, setTela] = useState('respondendo')
+  const [tela, setTela] = useState('capa')
   const [indice, setIndice] = useState(0)
   const [idsDestaque, setIdsDestaque] = useState([])
 
@@ -47,14 +48,20 @@ export default function App() {
 
   return (
     <div className="min-h-screen py-8">
-      <header className="max-w-md mx-auto px-4 mb-2 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className="w-7 h-7 rounded-md bg-orkut-blue flex items-center justify-center">
-            <span className="font-kalam text-paper text-sm">c</span>
+      {tela !== 'capa' && (
+        <header className="max-w-md mx-auto px-4 mb-2 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div className="w-7 h-7 rounded-md bg-orkut-blue flex items-center justify-center">
+              <span className="font-kalam text-paper text-sm">c</span>
+            </div>
+            <span className="font-kalam font-bold text-sm text-orkut-blue-dark">Replay</span>
           </div>
-          <span className="font-kalam font-bold text-sm text-orkut-blue-dark">Replay</span>
-        </div>
-      </header>
+        </header>
+      )}
+
+      {tela === 'capa' && (
+        <CapaCaderno onAbrir={() => setTela('respondendo')} />
+      )}
 
       {tela === 'respondendo' && perguntaAtual && (
         <PaginaCaderno
