@@ -196,7 +196,7 @@ export const perguntas = [
   { id: 'q08', tag: 'e-se', texto: 'Se você pudesse resgatar uma única amizade da escola que sumiu no tempo, quem seria?' },
   { id: 'q09', tag: 'e-se', texto: 'Se você pudesse apagar um único mico ou escolha de moda daquela época, qual seria?' },
   { id: 'q10', tag: 'e-se', texto: 'Qual conselho que os seus pais te davam na adolescência e que hoje você vê que eles estavam certos?' },
-  { id: 'q11', tag: 'e-se', texto: 'Se você ganhasse uma máquina do tempo que só desse para usar uma vez, você mudaria algo ou deixaria tudo igual?' }
+  { id: 'q11', tag: 'e-se', texto: 'Se você ganhasse uma máquina do tempo que só desse para usar uma vez, você mudaria algo ou deixaria tudo igual?' },
 
   // Leve e engraçado
   { id: 'l01', tag: 'leve', texto: 'Qual foi a maior vergonha que você passou na frente da turma toda?' },
