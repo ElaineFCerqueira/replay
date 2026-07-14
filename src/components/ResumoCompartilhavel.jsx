@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react'
 import { AdesivoEstrela } from './Adesivos'
 
-const MAX_DESTAQUES = 3
+const MAX_DESTAQUES = 5
 
 export function SeletorDestaques({ respostas, onConfirmar }) {
   const lista = useMemo(
@@ -46,7 +46,7 @@ export function SeletorDestaques({ respostas, onConfirmar }) {
         disabled={selecionadas.length === 0}
         className="w-full font-kalam font-bold text-sm h-11 mt-5 rounded-full border-2 border-orkut-blue bg-orkut-blue text-paper disabled:opacity-40"
       >
-        gerar meu resumo
+        montar meu cartão
       </button>
     </div>
   )
@@ -55,6 +55,26 @@ export function SeletorDestaques({ respostas, onConfirmar }) {
 export function CartaoResumo({ respostas, idsDestaque }) {
   const destaques = idsDestaque.map(id => respostas[id]).filter(Boolean)
   const rotacoes = ['-rotate-6', 'rotate-4', 'rotate-2']
+
+  async function compartilhar() {
+    const texto = destaques.map(r => `${r.pergunta}\n${r.texto}`).join('\n\n')
+    const conteudo = `meu Replay · geração 99/00\n\n${texto}\n\n${window.location.origin}`
+
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: 'Replay', text: conteudo })
+      } catch (e) {
+        // pessoa cancelou o compartilhamento, sem problema
+      }
+    } else {
+      try {
+        await navigator.clipboard.writeText(conteudo)
+        alert('copiado! cola onde quiser compartilhar.')
+      } catch (e) {
+        alert('não foi possível copiar automaticamente.')
+      }
+    }
+  }
 
   return (
     <div className="max-w-xs mx-auto py-6">
@@ -88,6 +108,13 @@ export function CartaoResumo({ respostas, idsDestaque }) {
           seusite.com
         </p>
       </div>
+
+      <button
+        onClick={compartilhar}
+        className="w-full font-kalam font-bold text-sm h-11 mt-5 rounded-full border-2 border-orkut-blue bg-orkut-blue text-paper"
+      >
+        compartilhar
+      </button>
     </div>
   )
 }

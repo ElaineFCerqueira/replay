@@ -79,7 +79,7 @@ export function useCaderninho() {
     })
   }, [caderninhoId])
 
-  const sortearMais = useCallback((tamanho = TAMANHO_LOTE) => {
+const sortearMais = useCallback((tamanho = TAMANHO_LOTE) => {
     const idsRespondidas = Object.keys(respostas)
     const novoLote = sortearLote(idsRespondidas, tamanho)
     setLoteAtual(novoLote)
@@ -90,6 +90,11 @@ export function useCaderninho() {
     return novoLote
   }, [respostas, caderninhoId])
 
+  const iniciarNovoCaderninho = useCallback(() => {
+    localStorage.removeItem(CHAVE_LOCAL)
+    window.location.reload()
+  }, [])
+
   return {
     caderninhoId,
     respostas,
@@ -97,5 +102,6 @@ export function useCaderninho() {
     carregando,
     salvarResposta,
     sortearMais,
+    iniciarNovoCaderninho,
   }
 }

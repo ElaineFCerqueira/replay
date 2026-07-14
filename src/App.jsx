@@ -3,11 +3,10 @@ import { useCaderninho } from './hooks/useCaderninho'
 import { CapaCaderno } from './components/CapaCaderno'
 import { PaginaCaderno } from './components/PaginaCaderno'
 import { SeletorDestaques, CartaoResumo } from './components/ResumoCompartilhavel'
-import { perguntasRestantes } from './data/perguntas'
 
-// Telas: 'respondendo' -> 'selecionando' -> 'resumo'
+// Telas: 'capa' -> 'respondendo' -> 'selecionando' -> 'resumo'
 export default function App() {
-  const { respostas, loteAtual, carregando, salvarResposta, sortearMais } = useCaderninho()
+  const { respostas, loteAtual, carregando, salvarResposta, iniciarNovoCaderninho } = useCaderninho()
   const [tela, setTela] = useState('capa')
   const [indice, setIndice] = useState(0)
   const [idsDestaque, setIdsDestaque] = useState([])
@@ -40,23 +39,26 @@ export default function App() {
     setTela('resumo')
   }
 
-  function sortearNovoLote() {
-    sortearMais()
-    setIndice(0)
-    setTela('respondendo')
-  }
-
   return (
     <div className="min-h-screen py-8">
       {tela !== 'capa' && (
-        <header className="max-w-md mx-auto px-4 mb-2 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-md bg-orkut-blue flex items-center justify-center">
-              <span className="font-kalam text-paper text-sm">c</span>
+        <>
+          <header className="max-w-md mx-auto px-4 mb-2 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <div className="w-7 h-7 rounded-md bg-orkut-blue flex items-center justify-center">
+                <span className="font-kalam text-paper text-sm">c</span>
+              </div>
+              <span className="font-kalam font-bold text-sm text-orkut-blue-dark">Replay</span>
             </div>
-            <span className="font-kalam font-bold text-sm text-orkut-blue-dark">Replay</span>
-          </div>
-        </header>
+          </header>
+          <button
+            onClick={() => setTela('capa')}
+            aria-label="fechar"
+            className="fixed top-4 right-4 w-9 h-9 rounded-full bg-paper border-2 border-paper-line flex items-center justify-center text-slate-500 font-kalam font-bold z-50"
+          >
+            ×
+          </button>
+        </>
       )}
 
       {tela === 'capa' && (
@@ -89,14 +91,12 @@ export default function App() {
             >
               ver respostas
             </button>
-            {perguntasRestantes(Object.keys(respostas)) > 0 && (
-              <button
-                onClick={sortearNovoLote}
-                className="font-kalam font-bold text-sm h-10 px-4 rounded-full border-2 border-orkut-blue bg-blue-50 text-orkut-blue-dark"
-              >
-                chegou na última página? sortear mais
-              </button>
-            )}
+            <button
+              onClick={iniciarNovoCaderninho}
+              className="font-kalam font-bold text-sm h-10 px-4 rounded-full border-2 border-orkut-blue bg-blue-50 text-orkut-blue-dark"
+            >
+              começar um novo caderninho
+            </button>
           </div>
         </div>
       )}
