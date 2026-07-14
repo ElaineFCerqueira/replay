@@ -6,9 +6,9 @@
 // antes do sorteio começar — tipo o cabeçalho de identificação que
 // todo caderninho físico tinha.
 export const perguntasFixas = [
-  { id: 'fixa-nome', tag: 'fixa', texto: 'Nome completo:' },
-  { id: 'fixa-idade', tag: 'fixa', texto: 'Idade:' },
-  { id: 'fixa-musica', tag: 'fixa', texto: 'Música preferida:' },
+  { id: 'fixa-nome', tag: 'fixa', texto: 'Oi! Qual o seu nome?' },
+  { id: 'fixa-idade', tag: 'fixa', texto: 'Em ano você nasceu?' },
+  { id: 'fixa-musica', tag: 'fixa', texto: 'Qual o seu apelido?' },
 ]
 
 export const perguntas = [
@@ -17,7 +17,7 @@ export const perguntas = [
   { id: 'n02', tag: 'nostalgia', texto: 'Você lembra o nome do seu primeiro crush da escola?' },
   { id: 'n03', tag: 'nostalgia', texto: 'Qual apelido você tinha (ou dava pros outros) que hoje seria cancelado?' },
   { id: 'n04', tag: 'nostalgia', texto: 'Que rolê de fita cassete ou CD você gravava pra alguém especial?' },
-  { id: 'n05', tag: 'nostalgia', texto: 'Lembra a senha de MSN ou nick de ICQ que você usava?' },
+  { id: 'n05', tag: 'nostalgia', texto: 'Lembra o nome de MSN ou nick de ICQ que você usava?' },
   { id: 'n06', tag: 'nostalgia', texto: 'Qual foi a maior mentira que você contou pros seus pais nessa época?' },
   { id: 'n07', tag: 'nostalgia', texto: 'Qual era o brinquedo ou objeto que você mais amava nessa fase?' },
   { id: 'n08', tag: 'nostalgia', texto: 'Tinha alguma guloseima ou salgadinho que sumiu e você sente falta até hoje?' },
@@ -29,6 +29,19 @@ export const perguntas = [
   { id: 'n14', tag: 'nostalgia', texto: 'Seu quarto tinha pôster ou mural de alguém/algo — de quem era?' },
   { id: 'n15', tag: 'nostalgia', texto: 'Qual era o ritual de fim de semana com os amigos?' },
   { id: 'n16', tag: 'nostalgia', texto: 'Qual foi a maior "session" de videogame ou brincadeira de rua que você lembra até hoje?' },
+  { id: 'n17', tag: 'nostalgia', texto: 'Qual era o seu maior sonho na sua adolescência e qual é o seu maior sonho hoje?' },
+  { id: 'n18', tag: 'nostalgia', texto: 'Qual comunidade do Orkut mais definia (ou definiria) a sua personalidade?' },
+  { id: 'n19', tag: 'nostalgia', texto: 'O que você colecionava na sua adolescência (adesivo, papel de cartas,etc) ?' },
+  { id: 'n20', tag: 'nostalgia', texto: 'Qual o maior mico que você já pagou tentando impressionar alguém na hora do recreio?' },
+  { id: 'n21', tag: 'nostalgia', texto: 'Se você pudesse voltar no tempo, passaria uma tarde jogando videogame ou conversando na calçada?' },
+  { id: 'n22', tag: 'nostalgia', texto: 'Qual era o seu "bonde" ou a sua "tribo" na escola? (Patricinha/Playboy, Roqueiro, Nerd, Skatista, Pagodeiro...)?' },
+  { id: 'n23', tag: 'nostalgia', texto: 'O que não podia faltar no seu estojo de jeito nenhum?' },
+  { id: 'n24', tag: 'nostalgia', texto: 'Qual era a frase que você deixava no seu "Subnick" do MSN ou no "Status" do ICQ para mandar indireta?' },
+  { id: 'n25', tag: 'nostalgia', texto: 'Complete a frase: "Para mim, um sábado perfeito na minha adolescência era..."' },
+  { id: 'n26', tag: 'nostalgia', texto: 'Qual era a brincadeira favorita no recreio?' },
+  { id: 'n27', tag: 'nostalgia', texto: 'Qual era a brincadeira favorita as tardes na calçada?' },
+  { id: 'n28', tag: 'nostalgia', texto: 'Qual foi a maior loucura ou travessura que você fez e seus pais nunca descobriram (ou só souberam depois de velhos)?' },
+  { id: 'n29', tag: 'nostalgia', texto: 'Qual objeto pegou emprestado naquela época e nunca mais devolveu? (Vale CD, blusa, estojo ou papel de carta!)' },
 
   // Contraste eu-adolescente vs eu-hoje
   { id: 'c01', tag: 'contraste', texto: 'O que você faria diferente se pudesse voltar pros seus 15 anos?' },
@@ -38,35 +51,48 @@ export const perguntas = [
   { id: 'c05', tag: 'contraste', texto: 'O que te dava vergonha na adolescência e hoje te faz rir?' },
   { id: 'c06', tag: 'contraste', texto: 'O que você acreditava piamente na adolescência e hoje sabe que era bobagem?' },
   { id: 'c07', tag: 'contraste', texto: 'Qual medo de adolescente você superou completamente?' },
-  { id: 'c08', tag: 'contraste', texto: 'O que era "o fim do mundo" pra você aos 15 e hoje te faz rir da proporção que dava?' },
+  { id: 'c08', tag: 'contraste', texto: 'O que era "o fim do mundo" pra você na sua adolescência e hoje te faz rir da proporção que dava?' },
   { id: 'c09', tag: 'contraste', texto: 'Você imaginava como seria sua casa/vida adulta — bateu com a realidade?' },
   { id: 'c10', tag: 'contraste', texto: 'Qual conselho de adulto você ignorava na época e hoje sabe que estava certo?' },
   { id: 'c11', tag: 'contraste', texto: 'O que você valorizava demais na adolescência e hoje não dá a mínima?' },
   { id: 'c12', tag: 'contraste', texto: 'Teve alguma regra sua (tipo "nunca vou fazer isso") que você quebrou depois de adulto?' },
-  { id: 'c13', tag: 'contraste', texto: 'O que te fazia feliz instantaneamente aos 15 anos e ainda funciona hoje?' },
+  { id: 'c13', tag: 'contraste', texto: 'O que te fazia feliz instantaneamente na sua adolescência e ainda funciona hoje?' },
   { id: 'c14', tag: 'contraste', texto: 'Se seu eu de hoje pudesse assistir um dia comum da sua adolescência, o que mais te surpreenderia?' },
   { id: 'c15', tag: 'contraste', texto: 'O que você jurava que nunca ia mudar em você — e mudou completamente?' },
+  { id: 'c16', tag: 'contraste', texto: 'O que você achava que seria super tecnológico em 2026 e que acabou sendo uma decepção?' },
+  { id: 'c17', tag: 'contraste', texto: 'Qual era a roupa ou corte de cabelo que você gente achava o auge da moda?' },
+
 
   // Relações e turma
   { id: 'r01', tag: 'relacoes', texto: 'Ainda fala com alguém da sua turma daquela época?' },
   { id: 'r02', tag: 'relacoes', texto: 'Quem você acha que "sumiu do mapa" e você tem curiosidade de saber o que aconteceu?' },
-  { id: 'r03', tag: 'relacoes', texto: 'Teve algum professor que marcou sua vida (bom ou ruim)?' },
+  { id: 'r03', tag: 'relacoes', texto: 'Teve algum professor que marcou sua vida positivamente, quem e porque?' },
   { id: 'r04', tag: 'relacoes', texto: 'Qual foi a maior treta de amizade que você lembra até hoje?' },
   { id: 'r05', tag: 'relacoes', texto: 'Se reencontrasse seu crush de adolescência hoje, o que diria?' },
   { id: 'r06', tag: 'relacoes', texto: 'Quem foi a primeira pessoa que você considerou "melhor amigo(a)" de verdade?' },
   { id: 'r07', tag: 'relacoes', texto: 'Teve algum grupo de amigos que se desfez e você nunca soube bem o motivo?' },
-  { id: 'r08', tag: 'relacoes', texto: 'Alguém te defendeu numa situação difícil e você nunca esqueceu?' },
+  { id: 'r08', tag: 'relacoes', texto: 'Quem te defendeu numa situação difícil e você nunca esqueceu?' },
   { id: 'r09', tag: 'relacoes', texto: 'Teve algum(a) amigo(a) de infância que hoje é praticamente um estranho?' },
   { id: 'r10', tag: 'relacoes', texto: 'Qual foi a amizade mais improvável que você teve nessa fase (tipo, ninguém apostava que ia dar certo)?' },
   { id: 'r11', tag: 'relacoes', texto: 'Você já se afastou de alguém e se arrepende até hoje?' },
   { id: 'r12', tag: 'relacoes', texto: 'Teve algum ciúme de amizade (tipo, seu melhor amigo ficando próximo de outra pessoa) que doeu na época?' },
   { id: 'r13', tag: 'relacoes', texto: 'Quem era o "parceiro de crime" que te acompanhava em toda travessura?' },
   { id: 'r14', tag: 'relacoes', texto: 'Teve alguma amizade de escola que virou algo mais que você nunca esperou?' },
-  { id: 'r15', tag: 'relacoes', texto: 'Se pudesse reunir a turma toda de novo por um dia, você iria?' },
+  { id: 'r15', tag: 'relacoes', texto: 'Se pudesse reunir a turma toda de novo por um dia, quem não as pessoas que não poderiam faltar?' },
+  { id: 'r16', tag: 'relacoes', texto: 'Teve algum professor que marcou sua vida negativamente, quem e porque?' },
+  { id: 'r17', tag: 'relacoes', texto: 'Qual o nome da escola onde você fez o seu Ensino Médio?' },
+  { id: 'r18', tag: 'relacoes', texto: 'Qual o nome da escola onde você fez o seu Ensino Fundamental?' },
+  { id: 'r19', tag: 'relacoes', texto: 'Quem era o seu ou a sua "melhor amiga(o) de bff" na escola?' },
+  { id: 'r20', tag: 'relacoes', texto: 'Quem era o seu ou a sua "melhor amiga(o) de bff" no seu bairro?' },
+  { id: 'r21', tag: 'relacoes', texto: 'Qual era o nome do primeiro "crush" da sua vida inteira? (Aquele primeiro amorzinho de infância que você desenhava os nomes juntos para ver se combinavam).' },
+  { id: 'r22', tag: 'relacoes', texto: 'Qual o nome daquele amigo que era a "dona da bola" ou a dona da boneca mais legal do bairro?' },
+  { id: 'r23', tag: 'relacoes', texto: 'Se você tivesse que listar o nome das 3 amigas(os) que não saíam da sua casa nas férias, quem seriam?' },
+  { id: 'r24', tag: 'relacoes', texto: 'Qual era o nome daquela amiga com quem você brigava por bobeira, mas fazia as pazes 5 minutos depois?' },
+  { id: 'r25', tag: 'relacoes', texto: 'Quem fazia parte do seu "bonde" ou da sua panelinha na hora do recreio?' },
 
   // Cultura pop e época
   { id: 'p01', tag: 'cultura', texto: 'Qual seriado ou desenho você não perdia por nada?' },
-  { id: 'p02', tag: 'cultura', texto: 'Qual foi o primeiro álbum/CD que você comprou com seu próprio dinheiro?' },
+  { id: 'p02', tag: 'cultura', texto: 'Qual foi o primeiro álbum/CD que você teve?' },
   { id: 'p03', tag: 'cultura', texto: 'Teve algum orkut, blog ou fotolog que você tinha vergonha do que postava?' },
   { id: 'p04', tag: 'cultura', texto: 'Qual moda de roupa daquela época você jura que nunca mais volta (mas secretamente ama)?' },
   { id: 'p05', tag: 'cultura', texto: 'Qual banda ou artista você achava que ia ser eterno e sumiu completamente?' },
@@ -164,6 +190,13 @@ export const perguntas = [
   { id: 'q02', tag: 'e-se', texto: 'Teve algum arrependimento dessa fase que ainda pesa um pouco?' },
   { id: 'q03', tag: 'e-se', texto: 'Qual foi a decisão mais corajosa que você tomou sendo adolescente?' },
   { id: 'q04', tag: 'e-se', texto: 'Se seu eu adolescente te visse hoje, acha que ia ficar orgulhoso?' },
+  { id: 'q05', tag: 'e-se', texto: 'Se você pudesse mandar um áudio de 30 segundos para o seu "eu" de 15 anos, o que diria?' },
+  { id: 'q06', tag: 'e-se', texto: 'Se a sua adolescência ganhasse um filme hoje, qual seria o título dessa história?' },
+  { id: 'q07', tag: 'e-se', texto: 'Qual sonho daquela época você achava que era impossível, mas acabou realizando?' },
+  { id: 'q08', tag: 'e-se', texto: 'Se você pudesse resgatar uma única amizade da escola que sumiu no tempo, quem seria?' },
+  { id: 'q09', tag: 'e-se', texto: 'Se você pudesse apagar um único mico ou escolha de moda daquela época, qual seria?' },
+  { id: 'q10', tag: 'e-se', texto: 'Qual conselho que os seus pais te davam na adolescência e que hoje você vê que eles estavam certos?' },
+  { id: 'q11', tag: 'e-se', texto: 'Se você ganhasse uma máquina do tempo que só desse para usar uma vez, você mudaria algo ou deixaria tudo igual?' }
 
   // Leve e engraçado
   { id: 'l01', tag: 'leve', texto: 'Qual foi a maior vergonha que você passou na frente da turma toda?' },
@@ -229,20 +262,18 @@ export const perguntas = [
   { id: 'm07', tag: 'mindset', texto: 'Como você lidava com perder (jogo, competição, disputa) na adolescência — e como lida hoje?' },
   { id: 'm08', tag: 'mindset', texto: 'Teve alguma vez que desistiu de algo cedo demais e se arrependeu depois?' },
   { id: 'm09', tag: 'mindset', texto: 'Você lembra de algum elogio de infância/adolescência que "colou" e definiu como você se via?' },
-  { id: 'm10', tag: 'mindset', texto: 'Isso te ajudou ou te limitou depois?' },
-  { id: 'm11', tag: 'mindset', texto: 'Teve algum adulto que elogiava seu esforço, e não só seu talento — isso fez diferença?' },
+  { id: 'm10', tag: 'mindset', texto: 'Teve algum adulto que elogiava seu esforço, e não só seu talento — isso fez diferença?' },
+  { id: 'm11', tag: 'mindset', texto: 'Se o sucesso para você na adolescência era ser popular, como você define sucesso hoje?' },
   { id: 'm12', tag: 'mindset', texto: 'Teve algo que você tentou várias vezes até conseguir, tipo andar de bike, tirar carteira, aprender um instrumento?' },
   { id: 'm13', tag: 'mindset', texto: 'Qual foi a habilidade que você achava impossível de aprender e hoje domina (ou está aprendendo)?' },
   { id: 'm14', tag: 'mindset', texto: 'Se pudesse voltar e insistir em algo que desistiu na adolescência, o que seria?' },
   { id: 'm15', tag: 'mindset', texto: 'Você se comparava muito com os colegas na escola? Isso ainda acontece hoje?' },
   { id: 'm16', tag: 'mindset', texto: 'Teve algum "gênio da turma" que te fazia sentir inferior — o que aconteceu com essa pessoa depois?' },
   { id: 'm17', tag: 'mindset', texto: 'Hoje você se inspira no sucesso dos outros, ou ainda sente aquela pontada de ameaça?' },
-  { id: 'm18', tag: 'mindset', texto: 'Se pudesse dar um conselho de "mentalidade de crescimento" pro seu eu adolescente, qual seria?' },
-  { id: 'm19', tag: 'mindset', texto: 'O que você acha que mudou mais: sua mentalidade sobre esforço, ou sobre talento?' },
-  { id: 'm20', tag: 'mindset', texto: 'Teve algum momento decisivo em que você trocou de mindset (parou de pensar "não consigo" e começou a pensar "ainda não consigo")?' },
+  { id: 'm18', tag: 'mindset', texto: 'O que você acha que mudou mais: sua mentalidade sobre esforço, ou sobre talento?' },
 ]
 
-export const TAMANHO_LOTE = 8
+export const TAMANHO_LOTE = 10
 
 // Sorteia um lote de perguntas que a pessoa ainda não respondeu
 export function sortearLote(idsJaRespondidas = [], tamanho = TAMANHO_LOTE) {
