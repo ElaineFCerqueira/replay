@@ -43,7 +43,7 @@ export function CapaCaderno({ onAbrir }) {
             Replay
           </p>
           <p className="font-kalam text-xs text-slate-400 text-center uppercase tracking-widest mb-8">
-            geração 99/00
+            geração nostalgia
           </p>
 
           <p className="font-kalam font-bold text-xl text-ink leading-relaxed text-center mb-5">
