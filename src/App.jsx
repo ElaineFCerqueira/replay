@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useCaderninho } from './hooks/useCaderninho'
 import { CapaCaderno } from './components/CapaCaderno'
 import { PaginaCaderno } from './components/PaginaCaderno'
@@ -10,11 +10,26 @@ export default function App() {
   const [tela, setTela] = useState('capa')
   const [indice, setIndice] = useState(0)
   const [idsDestaque, setIdsDestaque] = useState([])
+  const mensagensCarregando = [
+    'abrindo o caderninho...',
+    'sacudindo a poeira das páginas...',
+    'procurando uma caneta que funcione...',
+  ]
+  const [mensagemAtual, setMensagemAtual] = useState(0)
+
+  useEffect(() => {
+    const intervalo = setInterval(() => {
+      setMensagemAtual(i => (i + 1) % mensagensCarregando.length)
+    }, 1500)
+    return () => clearInterval(intervalo)
+  }, [])
+
+
 
   if (carregando) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <p className="font-kalam text-slate-400">abrindo o caderninho...</p>
+        <p className="font-kalam text-slate-400">{mensagensCarregando[mensagemAtual]}</p>
       </div>
     )
   }
