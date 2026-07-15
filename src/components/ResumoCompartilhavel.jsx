@@ -1,6 +1,8 @@
 import { useState, useMemo, useRef } from 'react'
 import { toJpeg } from 'html-to-image'
 import { AdesivoEstrela } from './Adesivos'
+import * as htmlToImage from 'html-to-image';
+
 
 const MAX_DESTAQUES = 5
 
