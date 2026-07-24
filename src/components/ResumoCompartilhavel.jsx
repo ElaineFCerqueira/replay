@@ -133,7 +133,7 @@ export function CartaoResumo({ respostas, idsDestaque }) {
             <div
               key={i}
               className={`bg-paper p-2.5 pb-5 rounded-sm shadow-md ${rotacoes[i % rotacoes.length]}`}
-              style={{ width: '82%' }}
+              style={{ width: '90%' }}
             >
               <p className="font-kalam font-bold text-[10px] text-slate-400 mb-1">{r.pergunta}</p>
               <p className="font-caveat font-bold text-base text-ink leading-tight">{r.texto}</p>
