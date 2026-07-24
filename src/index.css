@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 @theme {
-  @theme {
   --font-kalam: 'Kalam', cursive;
   --font-caveat: 'Caveat', cursive;
   --font-dancing: 'Dancing Script', cursive;
