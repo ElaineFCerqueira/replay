@@ -1,8 +1,10 @@
 @import "tailwindcss";
 
 @theme {
+  @theme {
   --font-kalam: 'Kalam', cursive;
   --font-caveat: 'Caveat', cursive;
+  --font-dancing: 'Dancing Script', cursive;
   --color-orkut-blue: #185FA5;
   --color-orkut-blue-dark: #123F70;
   --color-paper: #FFFDF5;
