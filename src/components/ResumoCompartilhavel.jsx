@@ -3,7 +3,7 @@ import { toJpeg } from 'html-to-image'
 import { AdesivoEstrela } from './Adesivos'
 
 
-const MAX_DESTAQUES = 5
+const MAX_DESTAQUES = 4
 
 export function SeletorDestaques({ respostas, onConfirmar }) {
   const lista = useMemo(
@@ -36,8 +36,8 @@ export function SeletorDestaques({ respostas, onConfirmar }) {
                 marcado ? 'border-orkut-blue bg-blue-50' : 'border-paper-line bg-paper'
               }`}
             >
-              <p className="font-kalam text-xs text-slate-400 mb-1">{r.pergunta}</p>
-              <p className="font-caveat font-bold text-lg text-orkut-blue-dark">{r.texto}</p>
+              <p className="font-kalam font-bold text-sm text-slate-500 mb-1.5">{r.pergunta}</p>
+              <p className="font-caveat font-bold text-2xl text-ink leading-snug">{r.texto}</p>
             </button>
           )
         })}
