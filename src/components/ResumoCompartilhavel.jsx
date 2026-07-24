@@ -36,8 +36,8 @@ export function SeletorDestaques({ respostas, onConfirmar }) {
                 marcado ? 'border-orkut-blue bg-blue-50' : 'border-paper-line bg-paper'
               }`}
             >
-              <p className="font-kalam font-bold text-base text-slate-500 mb-2">{r.pergunta}</p>
-              <p className="font-caveat font-bold text-3xl text-ink leading-snug">{r.texto}</p>
+              <p className="font-kalam font-bold text-base text-orkut-blue-dark mb-2">{r.pergunta}</p>
+              <p className="font-dancing font-bold text-3xl text-ink leading-snug">{r.texto}</p>
             </button>
           )
         })}
