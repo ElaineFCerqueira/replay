@@ -36,8 +36,8 @@ export function SeletorDestaques({ respostas, onConfirmar }) {
                 marcado ? 'border-orkut-blue bg-blue-50' : 'border-paper-line bg-paper'
               }`}
             >
-              <p className="font-kalam font-bold text-sm text-slate-500 mb-1.5">{r.pergunta}</p>
-              <p className="font-caveat font-bold text-2xl text-ink leading-snug">{r.texto}</p>
+              <p className="font-kalam font-bold text-base text-slate-500 mb-2">{r.pergunta}</p>
+              <p className="font-caveat font-bold text-3xl text-ink leading-snug">{r.texto}</p>
             </button>
           )
         })}
@@ -118,7 +118,7 @@ export function CartaoResumo({ respostas, idsDestaque }) {
     <div className="max-w-xs mx-auto py-6">
       <div
         ref={cartaoRef}
-        className="relative w-full aspect-[3/5] rounded-2xl p-5 overflow-visible"
+        className="relative w-full aspect-[3/4] rounded-2xl p-5 overflow-visible"
         style={{ background: 'linear-gradient(160deg, #F6C9DC 0%, #C9E4F5 55%, #FDE9A8 100%)' }}
       >
         <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 -rotate-3 w-16 h-5 bg-white/55 border border-white/80" />
