@@ -118,7 +118,7 @@ export function CartaoResumo({ respostas, idsDestaque }) {
     <div className="max-w-xs mx-auto py-6">
       <div
         ref={cartaoRef}
-        className="relative w-full aspect-[3/4] rounded-2xl p-5 overflow-visible"
+        className="relative w-full rounded-2xl p-6 pb-10 overflow-visible"
         style={{ background: 'linear-gradient(160deg, #F6C9DC 0%, #C9E4F5 55%, #FDE9A8 100%)' }}
       >
         <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 -rotate-3 w-16 h-5 bg-white/55 border border-white/80" />
@@ -133,10 +133,10 @@ export function CartaoResumo({ respostas, idsDestaque }) {
             <div
               key={i}
               className={`bg-paper p-2.5 pb-5 rounded-sm shadow-md ${rotacoes[i % rotacoes.length]}`}
-              style={{ width: '90%' }}
+              style={{ width: '94%' }}
             >
-              <p className="font-kalam font-bold text-[10px] text-slate-400 mb-1">{r.pergunta}</p>
-              <p className="font-caveat font-bold text-base text-ink leading-tight">{r.texto}</p>
+              <p className="font-kalam font-bold text-xl text-orkut-blue-dark mb-3 leading-snug">{r.pergunta}</p>
+              <p className="font-dancing font-bold text-4xl text-ink leading-snug">{r.texto}</p>
             </div>
           ))}
         </div>
