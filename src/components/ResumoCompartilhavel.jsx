@@ -88,26 +88,30 @@ export function CartaoResumo({ respostas, idsDestaque }) {
   async function compartilhar() {
     setGerando(true)
     try {
-      const dataUrl = await gerarImagem()
-      if (!dataUrl) return
-      const resposta = await fetch(dataUrl)
-      const blob = await resposta.blob()
-      const arquivo = new File([blob], 'replay-meu-caderninho.jpg', { type: 'image/jpeg' })
+  const handleCompartilhar = async () => {
+  const dataUrl = await toJpeg(cardRef.current, { quality: 0.95 });
+  const blob = await (await fetch(dataUrl)).blob();
+  const file = new File([blob], "replay.jpg", { type: "image/jpeg" });
 
-      if (navigator.canShare && navigator.canShare({ files: [arquivo] })) {
-        try {
-          await navigator.share({ files: [arquivo], title: 'Replay' })
-        } catch (e) {
-          // pessoa cancelou o compartilhamento, sem problema
-        }
-      } else {
-        const link = document.createElement('a')
-        link.download = 'replay-meu-caderninho.jpg'
-        link.href = dataUrl
-        link.click()
-        alert('seu navegador não compartilha imagens direto — a imagem foi baixada, é só anexar onde quiser postar.')
-      }
-    } catch (e) {
+  const linkCaderno = `${window.location.origin}/${cadernoId}`; 
+  // ajuste a rota conforme a estrutura das suas URLs (ex: /c/${id} ou /caderno/${id})
+
+  if (navigator.canShare && navigator.canShare({ files: [file] })) {
+    await navigator.share({
+      files: [file],
+      title: "Replay",
+      text: `Respondi o meu Replay ✨ vem responder o seu:\n${linkCaderno}`,
+    });
+  } else {
+    // fallback: navegadores sem suporte a share de arquivo (ex: desktop)
+    const link = document.createElement("a");
+    link.href = dataUrl;
+    link.download = "replay.jpg";
+    link.click();
+    navigator.clipboard?.writeText(linkCaderno);
+    // opcional: mostrar toast "link copiado!"
+  }
+}; catch (e) {
       alert('não foi possível gerar a imagem. tenta de novo em alguns segundos.')
     } finally {
       setGerando(false)
