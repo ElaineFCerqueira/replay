@@ -54,11 +54,12 @@ export function SeletorDestaques({ respostas, onConfirmar }) {
   )
 }
 
-export function CartaoResumo({ respostas, idsDestaque }) {
+export function CartaoResumo({ respostas, idsDestaque, linkCaderno }) {
   const destaques = idsDestaque.map(id => respostas[id]).filter(Boolean)
   const rotacoes = ['-rotate-6', 'rotate-4', 'rotate-2']
   const cartaoRef = useRef(null)
   const [gerando, setGerando] = useState(false)
+  const [linkCopiado, setLinkCopiado] = useState(false)
 
   async function gerarImagem() {
     if (!cartaoRef.current) return null
@@ -88,30 +89,41 @@ export function CartaoResumo({ respostas, idsDestaque }) {
   async function compartilhar() {
     setGerando(true)
     try {
-  const handleCompartilhar = async () => {
-  const dataUrl = await toJpeg(cardRef.current, { quality: 0.95 });
-  const blob = await (await fetch(dataUrl)).blob();
-  const file = new File([blob], "replay.jpg", { type: "image/jpeg" });
+      const dataUrl = await gerarImagem()
+      if (!dataUrl) return
+      const resposta = await fetch(dataUrl)
+      const blob = await resposta.blob()
+      const arquivo = new File([blob], 'replay-meu-caderninho.jpg', { type: 'image/jpeg' })
 
-  const linkCaderno = `${window.location.origin}/${cadernoId}`; 
-  // ajuste a rota conforme a estrutura das suas URLs (ex: /c/${id} ou /caderno/${id})
+      const texto = linkCaderno
+        ? `respondi o meu Replay ✨ vem responder o seu também:\n${linkCaderno}`
+        : 'respondi o meu Replay ✨'
 
-  if (navigator.canShare && navigator.canShare({ files: [file] })) {
-    await navigator.share({
-      files: [file],
-      title: "Replay",
-      text: `Respondi o meu Replay ✨ vem responder o seu:\n${linkCaderno}`,
-    });
-  } else {
-    // fallback: navegadores sem suporte a share de arquivo (ex: desktop)
-    const link = document.createElement("a");
-    link.href = dataUrl;
-    link.download = "replay.jpg";
-    link.click();
-    navigator.clipboard?.writeText(linkCaderno);
-    // opcional: mostrar toast "link copiado!"
-  }
-}; catch (e) {
+      if (navigator.canShare && navigator.canShare({ files: [arquivo] })) {
+        try {
+          await navigator.share({ files: [arquivo], title: 'Replay', text: texto })
+        } catch (e) {
+          // pessoa cancelou o compartilhamento, sem problema
+        }
+      } else {
+        const link = document.createElement('a')
+        link.download = 'replay-meu-caderninho.jpg'
+        link.href = dataUrl
+        link.click()
+
+        if (linkCaderno && navigator.clipboard) {
+          try {
+            await navigator.clipboard.writeText(linkCaderno)
+            setLinkCopiado(true)
+            setTimeout(() => setLinkCopiado(false), 3000)
+          } catch (e) {
+            // clipboard indisponível, sem problema
+          }
+        }
+
+        alert('seu navegador não compartilha imagens direto — a imagem foi baixada' + (linkCaderno ? ' e o link do seu caderno foi copiado' : '') + ', é só colar junto onde for postar.')
+      }
+    } catch (e) {
       alert('não foi possível gerar a imagem. tenta de novo em alguns segundos.')
     } finally {
       setGerando(false)
@@ -148,7 +160,7 @@ export function CartaoResumo({ respostas, idsDestaque }) {
         <AdesivoEstrela className="bottom-14 right-4 rotate-[-10deg]" />
 
         <p className="absolute bottom-2 left-0 right-0 text-center font-kalam text-[10px] text-ink/50">
-          seusite.com
+          replay-nostalgia.vercel.app
         </p>
       </div>
 
@@ -168,6 +180,12 @@ export function CartaoResumo({ respostas, idsDestaque }) {
           {gerando ? 'gerando...' : 'compartilhar'}
         </button>
       </div>
+
+      {linkCopiado && (
+        <p className="text-center font-kalam text-xs text-orkut-blue mt-2">
+          link copiado! ✓
+        </p>
+      )}
     </div>
   )
 }
