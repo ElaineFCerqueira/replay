@@ -57,12 +57,13 @@ export function useEstatisticas() {
         rankingPerguntas,
         distribuicaoDeRespostas,
       })
+    } 
+    
     } catch (e) {
+      console.error('Erro ao carregar estatísticas:', e)
       setErro(e.message)
-    } finally {
-      setCarregando(false)
-    }
-  }, [])
+    } finally 
+{, [])
 
   useEffect(() => {
     carregar()
