@@ -48,7 +48,7 @@ export function useEstatisticas() {
         .map(([id, contagem]) => ({ id, texto: mapaPerguntas[id] || id, contagem }))
         .sort((a, b) => b.contagem - a.contagem)
 
-      setStats({
+     setStats({
         totalCaderninhos,
         totalRespostas,
         mediaRespostasPorCaderninho: totalCaderninhos ? (totalRespostas / totalCaderninhos).toFixed(1) : 0,
@@ -57,17 +57,16 @@ export function useEstatisticas() {
         rankingPerguntas,
         distribuicaoDeRespostas,
       })
-    } 
-    
     } catch (e) {
       console.error('Erro ao carregar estatísticas:', e)
       setErro(e.message)
-    } finally 
-{, [])
-
+    } finally {
+      setCarregando(false)
+    }
+  }, [])
   useEffect(() => {
     carregar()
   }, [carregar])
-
   return { stats, carregando, erro, recarregar: carregar }
+}
 }
