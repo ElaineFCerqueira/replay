@@ -69,4 +69,4 @@ export function useEstatisticas() {
   }, [carregar])
   return { stats, carregando, erro, recarregar: carregar }
 }
-}
+
